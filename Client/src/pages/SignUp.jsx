@@ -1,7 +1,64 @@
-import React from 'react'
+import { Button, Label, TextInput } from "flowbite-react";
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default function SignUp() {
   return (
-    <div>SignUp</div>
-  )
+    <div className="min-h-screen mt-20">
+      <div className="flex flex-col max-w-3xl gap-5 p-3 mx-auto md:flex-row md:items-center">
+        {/* {left} */}
+        <div className="flex-1">
+          <Link to="/" className="text-sm text-4xl font-bold dark:text-white">
+            <span className="px-2 py-1 text-white rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+              Thang's
+            </span>
+            BLog
+          </Link>
+          <p className="mt-5 text-sm">
+            Welcome back to my blog! Sign in with your email and password
+          </p>
+        </div>
+        {/* {right} */}
+        <div className="flex-1">
+          <div className="">
+            <form className="flex flex-col gap-4">
+              <div className="">
+                <Label value="Your username"></Label>
+                <TextInput
+                  type="text"
+                  placeholder="Username"
+                  id="username"
+                ></TextInput>
+              </div>
+              <div className="">
+                <Label value="Your email"></Label>
+                <TextInput
+                  type="text"
+                  placeholder="name@gmail.com"
+                  id="email"
+                ></TextInput>
+              </div>
+              <div className="">
+                <Label value="Your password"></Label>
+                <TextInput
+                  type="text"
+                  placeholder="Your password"
+                  id="password"
+                ></TextInput>
+              </div>
+              <Button gradientDuoTone='purpleToPink' type="submit">
+                Sign Up
+              </Button>
+            </form>
+            <div className="flex gap-2 mt-5 text-sm">
+              <span>Have an account ?</span>
+              <Link to = '/sign-in' className="text-blue-500">
+              Sign in 
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
