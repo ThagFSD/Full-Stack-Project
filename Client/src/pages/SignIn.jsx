@@ -1,15 +1,20 @@
 import { Button, Label, TextInput } from "flowbite-react";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 
 export default function SignIn() {
+  const [formData, setFormData] = useState({});
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+  console.log(formData);
   return (
     <div className="min-h-screen mt-20">
       <div className="flex flex-col max-w-3xl gap-5 p-3 mx-auto md:flex-row md:items-center">
         {/* {left} */}
         <div className="flex-1">
-          <Link to="/" className="text-sm text-4xl font-bold dark:text-white">
+          <Link to="/" className="text-4xl font-bold dark:text-white">
             <span className="px-2 py-1 text-white rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
               Thang's
             </span>
@@ -26,17 +31,19 @@ export default function SignIn() {
               <div className="">
                 <Label value="Your email"></Label>
                 <TextInput
-                  type="text"
+                  type="email"
                   placeholder="name@gmail.com"
                   id="email"
+                  onChange={handleChange}
                 ></TextInput>
               </div>
               <div className="">
                 <Label value="Your password"></Label>
                 <TextInput
-                  type="text"
-                  placeholder="Your password"
+                  type="password"
+                  placeholder="Password"
                   id="password"
+                  onChange={handleChange}
                 ></TextInput>
               </div>
               <Button gradientDuoTone="purpleToPink" type="submit">
